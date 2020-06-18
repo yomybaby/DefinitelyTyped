@@ -481,7 +481,7 @@ namespace Parse {
     interface ObjectStatic {
         createWithoutData<T extends Object>(id: string): T;
         destroyAll<T extends Object>(list: T[], options?: Object.DestroyAllOptions): Promise<T[]>;
-        extend(className: string | { className: string }, protoProps?: any, classProps?: any): any;
+        extend<T extends Attributes = Attributes>(className: string | { className: string }, protoProps?: any, classProps?: any): new () => Object<T>;
         fetchAll<T extends Object>(list: T[], options: Object.FetchAllOptions): Promise<T[]>;
         fetchAllIfNeeded<T extends Object>(list: T[], options?: Object.FetchAllOptions): Promise<T[]>;
         fetchAllIfNeededWithInclude<T extends Object>(
